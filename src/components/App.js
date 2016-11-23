@@ -5,7 +5,7 @@ let Mixin = InnerComponent => class extends React.Component {
   constructor() {
     super();
     this.update = this.update.bind(this);
-    this.state = {val: 0};
+    this.state = {val: 1};
   }
   update() {
     this.setState({val: this.state.val + 1});

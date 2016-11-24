@@ -16,11 +16,11 @@ var config = {
   module: {
     loaders: [{
       test: /\.js$/,
+      exclude: /node_modules/,
       loader: 'babel',
-      exclude: [nodeModulesPath]
-    },{
-      test: /\.css$/,
-      loader: 'style!css'
+      query: {
+        presets: ['es2015', 'react']
+      }
     }]
   },
   plugins: [

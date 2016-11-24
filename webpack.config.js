@@ -1,32 +1,34 @@
 var webpack = require('webpack');
 var path = require('path');
+var outputPath = path.join(__dirname, '/dist');
+var buildPath = path.resolve(__dirname, 'public', 'build');
+var appPath = path.join(__dirname, 'src');
 
 module.exports = {
   entry: [
+    // For hot style updates
+   'webpack/hot/dev-server',
+
+    // The script refreshing the browser on none hot updates
+    'webpack-dev-server/client?http://localhost:8080',
+
     './src/index'
   ],
   output: {
-    path: path.join(__dirname, '/dist'),
-    publicPath: '/',
+    path: buildPath,
+    publicPath: '/build/',
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-    inline: true,
-    port: 3333
-  },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    // We have to manually add the Hot Replacement plugin when running
+   // from Node
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     loaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel',
-      include: path.join(__dirname, 'src'),
       query: {
         presets: ['es2015', 'react']
       }

@@ -24,15 +24,15 @@ var config = {
     }]
   },
   plugins: [
-    new webpack.DefinePlugin({
+    new Webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"',
       }
     }),
     // optimizations
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
+    new Webpack.optimize.DedupePlugin(),
+    new Webpack.optimize.OccurenceOrderPlugin(),
+    new Webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
       },

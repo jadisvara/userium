@@ -1,5 +1,5 @@
 {
-  "name": "react-setup",
+  "name": "userrium-setup",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,7 +8,7 @@
     "start": "node server",
     "postinstall": "node deploy"
   },
-  "author": "",
+  "author": "Julia Vakuyluk",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.7.6",

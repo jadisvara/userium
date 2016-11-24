@@ -8,9 +8,10 @@ var config = {
 
   // We change to normal source mapping
   devtool: 'source-map',
-  entry: mainPath,
+  entry: ['./src/index'],
   output: {
     path: buildPath,
+    publicPath: '/build/',
     filename: 'bundle.js'
   },
   module: {
@@ -22,6 +23,9 @@ var config = {
         presets: ['es2015', 'react']
       }
     }]
+  },
+  resolve: {
+    extensions: ['', '.js']
   },
   plugins: [
     new Webpack.DefinePlugin({
